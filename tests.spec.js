@@ -1,4 +1,4 @@
- import { isAnagram, stringSplit, isAnagramWithSplit } from "./isAnagram";
+ import { isAnagram, stringSplit, isAnagramWithSplit, duplicateEncoder, countCharacters } from "./strings";
  import { findMax } from './maxminNumber'
  import { bubbleSort, swap, reverseString } from './sort'
  import { factorial } from './recursion'
@@ -66,6 +66,28 @@
            expect(factorial(test.number)).toBe(test.expectedResult)
          }
        )
+   })
+
+   test('whether string decoder works for repeated values', () => {
+        [{ param: 'thingg', expectedResult: "(()((("}].forEach(test => { 
+              expect(duplicateEncoder(test.param)).toBe(test.expectedResult) 
+        })
+   })
+
+   test('whether count characters returns counts of characters in a string', () => {
+     [
+       { param: 'malayalam', expectedResult: { m: 2, a: 4, l: 2, y: 1 } },
+       { param: 'fried rice', expectedResult: { f: 1, r: 2, i: 2, e: 2, d: 1, c: 1, ' ': 1 } },
+       { param: null, expectedResult: 'Please enter string' },
+       { param: undefined, expectedResult: 'Please enter string' },
+       { param: 2, expectedResult: 'Please enter string' },
+       { param: ['malayalam'], expectedResult: 'Please enter string' },
+     ]
+       .forEach(test => {
+
+         expect(countCharacters(test.param)).toStrictEqual(test.expectedResult)
+
+       })
    })
 
  })
