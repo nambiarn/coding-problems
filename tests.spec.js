@@ -85,7 +85,7 @@
        })
    })
 
-   test('whether count characters returns counts of characters in a string', () => {
+   test('whether string is included in a list', () => {
     [
       { param1: ['malayalam'], param2: 'malaYalam', expectedResult: true },
       { param1: ['malayalam', 'mallu'], param2: 'malaYalam', expectedResult: true },
