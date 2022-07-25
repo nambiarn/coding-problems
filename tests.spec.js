@@ -2,6 +2,7 @@
  import { findMax } from './maxminNumber'
  import { bubbleSort, swap, reverseString } from './sort'
  import { factorial } from './recursion'
+ import { isStringIncluded } from './arrayMethods'
 
  describe('coding problem tests', () => {
 
@@ -89,5 +90,21 @@
 
        })
    })
+
+   test('whether count characters returns counts of characters in a string', () => {
+    [
+      { param1: ['malayalam'], param2: 'malaYalam', expectedResult: true },
+      { param1: ['malayalam', 'mallu'], param2: 'malaYalam', expectedResult: true },
+      { param1: ['malayalam', 'mallu'], param2: 'malaY alam', expectedResult: false },
+      { param1: null, param2: 'malaY alam', expectedResult:  "Please enter list in first parameter" },
+      { param1: ['malayalam', 'mallu'], param2: null, expectedResult:  "Please enter string in second parameter" },
+      { param1: null, param2: null, expectedResult:  "Please enter list in first parameter and Please enter string in second parameter" },
+    ]
+      .forEach(test => {
+
+        expect(isStringIncluded(test.param1, test.param2)).toStrictEqual(test.expectedResult)
+
+      })
+  })
 
  })
