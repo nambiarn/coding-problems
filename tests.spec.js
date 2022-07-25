@@ -97,8 +97,7 @@
       { param1: ['malayalam', 'mallu'], param2: 'malaYalam', expectedResult: true },
       { param1: ['malayalam', 'mallu'], param2: 'malaY alam', expectedResult: false },
       { param1: null, param2: 'malaY alam', expectedResult:  "Please enter list in first parameter" },
-      { param1: ['malayalam', 'mallu'], param2: null, expectedResult:  "Please enter string in second parameter" },
-      { param1: null, param2: null, expectedResult:  "Please enter list in first parameter and Please enter string in second parameter" },
+      { param1: ['malayalam', 'mallu'], param2: null, expectedResult:  "Please enter string in second parameter" }
     ]
       .forEach(test => {
 

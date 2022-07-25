@@ -1,6 +1,6 @@
 export const isStringIncluded = (list, str) => {
 
-    if (!list || !list.length) return 'Please enter list in first parameter';
+    if (!list) return 'Please enter list in first parameter';
     if (!str || typeof (str) !== 'string') return 'Please enter string in second parameter';
 
 

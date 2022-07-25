@@ -1,4 +1,5 @@
 import { bubbleSort } from "./sort"
+import { isStringIncluded } from "./arrayMethods";
 
 export const isAnagram = (str1 , str2) => {
     return bubbleSort(str1.toLowerCase().split('')).join('') ===
@@ -27,7 +28,7 @@ export const duplicateEncoder = str => {
     for(let i = 0; i < listLength - 1; i++ ) {
         let el = list[i];
         list.splice(list.indexOf(el), 1)
-        if(list.includes(el)) otherList.push(')')
+        if(isStringIncluded(list, el)) otherList.push(')')
         otherList.push('(')
     }
 
@@ -41,7 +42,7 @@ export const countCharacters = str => {
     let result = {};
  
      for(let i = 0; i < list.length; i++) {
-         if(Object.keys(result).includes(str[i])) {
+         if(isStringIncluded(Object.keys(result), str[i])) {
              result[list[i]]++;
          } else {
              result[list[i]] = 1;
