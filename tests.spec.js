@@ -69,12 +69,6 @@
        )
    })
 
-   test('whether string decoder works for repeated values', () => {
-        [{ param: 'thingg', expectedResult: "(()((("}].forEach(test => { 
-              expect(duplicateEncoder(test.param)).toBe(test.expectedResult) 
-        })
-   })
-
    test('whether count characters returns counts of characters in a string', () => {
      [
        { param: 'malayalam', expectedResult: { m: 2, a: 4, l: 2, y: 1 } },
