@@ -2,7 +2,7 @@
  import { findMax } from './maxminNumber'
  import { bubbleSort, swap, reverseString } from './sort'
  import { factorial } from './recursion'
- import { isStringIncluded } from './arrayMethods'
+ import { isStringIncluded, doSomeElementsMatch, doesEveryElementMatch } from './arrayMethods'
 
  describe('coding problem tests', () => {
 
@@ -96,6 +96,31 @@
       .forEach(test => {
 
         expect(isStringIncluded(test.param1, test.param2)).toStrictEqual(test.expectedResult)
+
+      })
+  })
+
+  test('whether some elements match in a list', () => {
+    [
+      { param1: [1,2,5], param2: el => el % 2 === 0, expectedResult: true },
+      { param1: [1,3,5], param2: el => el % 2 === 0, expectedResult: false },
+      { param1: [1, 3, 5, 12], param2: el => el % 2 === 0, expectedResult: true },
+    ]
+      .forEach(test => {
+
+        expect(doSomeElementsMatch(test.param1, test.param2)).toStrictEqual(test.expectedResult)
+
+      })
+  })
+
+  test('whether string is included in a list', () => {
+    [
+      { param1: [1,2,5], param2: el => el % 2 === 0, expectedResult: false },
+      { param1: [1,3,5], param2: el => el % 2 === 0, expectedResult: false },
+      { param1: [2, 4, 12], param2: el => el % 2 === 0, expectedResult: true },
+    ]
+      .forEach(test => {
+        expect(doesEveryElementMatch(test.param1, test.param2)).toStrictEqual(test.expectedResult)
 
       })
   })
