@@ -30,6 +30,5 @@ export const doesEveryElementMatch = (list, callBackFunc) => {
     for (let i = 0; i < list.length; i++) {
         if (callBackFunc(list[i])) count++;
     }
-    
     return count === list.length;
 }
