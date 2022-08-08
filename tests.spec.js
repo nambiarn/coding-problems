@@ -1,4 +1,5 @@
- import { isAnagram, stringSplit, isAnagramWithSplit, duplicateEncoder, countCharacters } from "./strings";
+ import { isAnagram, stringSplit, isAnagramWithSplit, 
+  duplicateEncoder, countCharacters, fizzBuzz } from "./strings";
  import { findMax } from './maxminNumber'
  import { bubbleSort, swap, reverseString } from './sort'
  import { factorial } from './recursion'
@@ -121,6 +122,18 @@
     ]
       .forEach(test => {
         expect(doesEveryElementMatch(test.param1, test.param2)).toStrictEqual(test.expectedResult)
+
+      })
+  })
+
+  test('whether string is included in a list', () => {
+    [
+      { param1: 15, expectedResult: 'Fizz Buzz' },
+      { param1: 5, expectedResult: 'Buzz' },
+      { param1: 3, expectedResult: 'Fizz' },
+    ]
+      .forEach(test => {
+        expect(fizzBuzz(test.param1)).toStrictEqual(test.expectedResult)
 
       })
   })
