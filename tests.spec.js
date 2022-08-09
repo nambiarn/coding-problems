@@ -128,13 +128,12 @@
 
   test('whether string is included in a list', () => {
     [
-      { param1: 15, expectedResult: 'Fizz Buzz' },
-      { param1: 5, expectedResult: 'Buzz' },
-      { param1: 3, expectedResult: 'Fizz' },
+      { param1: 15, expectedResult: [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz'] },
+      { param1: 5, expectedResult: [1, 2, 'Fizz', 4, 'Buzz'] },
+      { param1: 9, expectedResult: [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz'] },
     ]
       .forEach(test => {
         expect(fizzBuzz(test.param1)).toStrictEqual(test.expectedResult)
-
       })
   })
 

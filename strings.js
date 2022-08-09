@@ -53,9 +53,21 @@ export const countCharacters = str => {
  }
 
  export const fizzBuzz = num => {
-    if(num % 15 === 0) return 'Fizz Buzz';
-    if(num % 3 === 0) return 'Fizz';
-    if(num % 5 === 0) return 'Buzz';
-
-    return num;
- }
+    let arr = [];
+    for(let i = 1; i <= num; i++) {
+        if(i % 5 === 0 && i % 3 === 0) {
+            arr.push("Fizz Buzz");
+            continue;
+        }
+        if(i % 5 === 0) { 
+            arr.push("Buzz");
+            continue;
+        }
+        if(i % 3 === 0) { 
+            arr.push("Fizz"); 
+            continue;
+        }
+        arr.push(i);
+        }
+        return arr;
+}
