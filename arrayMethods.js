@@ -49,6 +49,7 @@ export const flattenArray = list => {
 const doesArrayContainOtherArrays = list => list.filter(el => Array.isArray(el)).length > 0;
 
 export const flattenArrayDeep = list => {
+    if(!list) return [];
     if (!doesArrayContainOtherArrays(list)) { return list; }
     else {
         for (let i = 0; i < list.length; i++) {

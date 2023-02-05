@@ -149,7 +149,10 @@
    test('whether flatten array deep flattens n level deep recursively', () => {
      [{ param1: [11, 22, [33, 44]], expectedResult: [11, 22, 33, 44] },
      { param1: [11, 22, [33, [44]]], expectedResult: [11, 22, 33, 44] },
-     { param1: [11, 22, [33, 44, [55, 66, [77, [88, [99]]]]]], expectedResult: [11, 22, 33, 44, 55, 66, 77, 88, 99] }]
+     { param1: [11, 22, [33, 44, [55, 66, [77, [88, [99]]]]]], expectedResult: [11, 22, 33, 44, 55, 66, 77, 88, 99] },
+     { param1: [], expectedResult: [] },
+     { param1: null, expectedResult: [] },
+     { param1: undefined, expectedResult: [] }]
        .forEach(test => {
 
          expect(flattenArrayDeep(test.param1)).toStrictEqual(test.expectedResult);
