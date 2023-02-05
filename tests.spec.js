@@ -3,7 +3,7 @@
  import { findMax } from './maxminNumber'
  import { bubbleSort, swap, reverseString } from './sort'
  import { factorial } from './recursion'
- import { isStringIncluded, doSomeElementsMatch, doesEveryElementMatch, flattenArray } from './arrayMethods'
+ import { isStringIncluded, doSomeElementsMatch, doesEveryElementMatch, flattenArray, flattenArrayDeep } from './arrayMethods'
 
  describe('coding problem tests', () => {
 
@@ -137,13 +137,25 @@
       })
   })
 
-   test('when flatten array flattens one level deep', () => {
+   test('whether flatten array flattens one level deep', () => {
      [{ param1: [11, 22, [33, 44]], expectedResult: [11, 22, 33, 44] }].forEach(test => {
 
        expect(flattenArray(test.param1)).toStrictEqual(test.expectedResult);
 
      }
      )
+   })
+
+   test('whether flatten array deep flattens n level deep recursively', () => {
+     [{ param1: [11, 22, [33, 44]], expectedResult: [11, 22, 33, 44] },
+     { param1: [11, 22, [33, [44]]], expectedResult: [11, 22, 33, 44] },
+     { param1: [11, 22, [33, 44, [55, 66, [77, [88, [99]]]]]], expectedResult: [11, 22, 33, 44, 55, 66, 77, 88, 99] }]
+       .forEach(test => {
+
+         expect(flattenArrayDeep(test.param1)).toStrictEqual(test.expectedResult);
+
+       }
+       )
    })
 
  })

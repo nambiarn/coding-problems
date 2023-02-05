@@ -45,3 +45,21 @@ export const flattenArray = list => {
     }
     return list;
 }
+
+const doesArrayContainOtherArrays = list => list.filter(el => Array.isArray(el)).length > 0;
+
+export const flattenArrayDeep = list => {
+    if (!doesArrayContainOtherArrays(list)) { return list; }
+    else {
+        for (let i = 0; i < list.length; i++) {
+            if (Array.isArray(list[i])) {
+                let second = list[i];
+                list.splice(i, 1);
+                list.push(...second);
+            }
+        }
+        flattenArrayDeep(list);
+    }
+
+    return list;
+}
