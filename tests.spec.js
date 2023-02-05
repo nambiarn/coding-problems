@@ -3,7 +3,7 @@
  import { findMax } from './maxminNumber'
  import { bubbleSort, swap, reverseString } from './sort'
  import { factorial } from './recursion'
- import { isStringIncluded, doSomeElementsMatch, doesEveryElementMatch } from './arrayMethods'
+ import { isStringIncluded, doSomeElementsMatch, doesEveryElementMatch, flattenArray } from './arrayMethods'
 
  describe('coding problem tests', () => {
 
@@ -136,5 +136,14 @@
         expect(fizzBuzz(test.param1)).toStrictEqual(test.expectedResult)
       })
   })
+
+   test('when flatten array flattens one level deep', () => {
+     [{ param1: [11, 22, [33, 44]], expectedResult: [11, 22, 33, 44] }].forEach(test => {
+
+       expect(flattenArray(test.param1)).toStrictEqual(test.expectedResult);
+
+     }
+     )
+   })
 
  })

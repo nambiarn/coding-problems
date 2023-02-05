@@ -30,6 +30,18 @@ export const doesEveryElementMatch = (list, callBackFunc) => {
     for (let i = 0; i < list.length; i++) {
         if (callBackFunc(list[i])) count++;
     }
-    
+
     return count === list.length;
+}
+
+export const flattenArray = list => {
+
+    for (let i = 0; i < list.length; i++) {
+        if (Array.isArray(list[i])) {
+            let second = list[i];
+            list.splice(i, 1);
+            list.push(...second);
+        }
+    }
+    return list;
 }
