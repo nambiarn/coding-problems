@@ -4,6 +4,7 @@
  import { bubbleSort, swap, reverseString } from './sort'
  import { factorial } from './recursion'
  import { isStringIncluded, doSomeElementsMatch, doesEveryElementMatch, flattenArray, flattenArrayDeep } from './arrayMethods'
+import { flattenObj, flattenObjDeep } from "./plainObjects";
 
  describe('coding problem tests', () => {
 
@@ -159,6 +160,31 @@
 
        }
        )
+   })
+
+   test('whether flatten plain objects flattens one level deep', () => {
+     [{
+       param1: { name: 'Ben', food: 'spinach', stuff: { thing: "thang" } },
+       expectedResult: { name: 'Ben', food: 'spinach', thing: "thang" }
+     }
+     ].forEach(test => {
+
+       expect(flattenObj(test.param1)).toStrictEqual(test.expectedResult);
+     }
+     )
+   })
+
+   test('whether flatten plain objects flattens n level deep', () => {
+     [{
+       param1: { name: 'Ben', food: 'spinach', stuff: { thing: "thang", more: { things: "stuff" } } },
+       expectedResult: { name: 'Ben', food: 'spinach', thing: "thang", things: "stuff" },
+     },
+     { param1: null, expectedResult: {} },
+     { param1: undefined, expectedResult: {} }
+     ].forEach(test => {
+       expect(flattenObjDeep(test.param1)).toStrictEqual(test.expectedResult);
+     }
+     )
    })
 
  })

@@ -38,29 +38,18 @@ export const flattenArray = list => {
 
     for (let i = 0; i < list.length; i++) {
         if (Array.isArray(list[i])) {
-            let second = list[i];
+            let copy = list[i];
             list.splice(i, 1);
-            list.push(...second);
+            list.push(...copy);
         }
     }
     return list;
 }
 
-const doesArrayContainOtherArrays = list => list.filter(el => Array.isArray(el)).length > 0;
-
 export const flattenArrayDeep = list => {
-    if(!list) return [];
-    if (!doesArrayContainOtherArrays(list)) { return list; }
-    else {
-        for (let i = 0; i < list.length; i++) {
-            if (Array.isArray(list[i])) {
-                let second = list[i];
-                list.splice(i, 1);
-                list.push(...second);
-            }
-        }
-        flattenArrayDeep(list);
-    }
-
-    return list;
+    if (!list) return [];
+    // check if elements have an array, if yes flatten recursively, else return list
+    return doSomeElementsMatch(list, el => Array.isArray(el)) ?
+        flattenArrayDeep(flattenArray(list)) :
+        list;
 }
