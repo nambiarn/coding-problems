@@ -1,12 +1,15 @@
-def condition(el=None):
-    return el % 2 == 0
+# def condition(el=None):
+#     return el % 2 == 0
 
 
 def someCallback(el=None):
-    return el is not None and condition(el)
+    return el is not None and el % 2 == 0
 
 
 def some(elements, callback):
+    if elements is None or False: 
+        return False
+    
     for element in elements:
         if callback(element):
             return True
@@ -16,15 +19,25 @@ def some(elements, callback):
 
 print(some([3, 8, 13], someCallback))
 
-def every(elements=[], callback=None):
+# def every(elements=[], callback=None):
+#     count = 0
+#     for element in elements:
+#         if callback(element):
+#             count = count + 1
+    
+#     return count == len(elements)
+
+# print(every([2, 8, 12], someCallback))
+
+def every(elements, callback):
     count = 0
     for element in elements:
-        if callback(element):
-            count = count + 1
-    
+        if(callback(element)):
+            return
+
     return count == len(elements)
 
-print(every([2, 8, 12], someCallback))
+print(every([2, 8, 23], someCallback))
 
 '''
 Python Learnings:
