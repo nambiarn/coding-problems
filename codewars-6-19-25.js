@@ -31,3 +31,27 @@ function order(words){
   }) 
   return result.join(' ')
 }
+
+/*
+Complete the solution so that it splits the string into pairs of two characters. 
+If the string contains an odd number of characters then it should 
+replace the missing second character of the final pair with an underscore ('_').
+*/
+function solution(str) {
+  const strArr = str.split('');
+  let result = [];
+
+  if (str.length % 2 === 0) {
+    for (let i = 0; i < strArr.length; i += 2) {
+      result.push(`${str[i]}${str[i + 1]}`);
+    }
+  } else {
+    for (let i = 0; i < strArr.length; i += 2) {
+      if (!str[i + 1]) {
+        result.push(`${str[i]}_`);
+      } else {
+        result.push(`${str[i]}${str[i + 1]}`);
+      }
+    }
+  }
+}
